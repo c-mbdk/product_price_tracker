@@ -3,10 +3,10 @@
 ## About this project
 This project uses a series of functions to scrape websites for the price of certain products and produces a csv. There are other price comparison websites that work well, but this is more personalised to certain products that the author uses regularly.
 
+The scraper now runs in headless mode i.e., it does not wait for the UI to be loaded, before scraping the websites. The time savings are currently minimal, but if the number of products/shops checked increases, the benefits will be more obvious.
+
 ## Future enhancements
 There are some code adjustments that could be made. There is room to refactor the functions that scrape the websites and some variables could be renamed to be more generic. This will be improved in a future release.
-
-Beyond repetitive code, it is possible to explore headless webscraping with this. Headless webscraping is known to be faster as it does not rely on loading the UI. Currently, when the scraper code is executed, it opens each browser window. As only a few links are currently used, the time taken for scraper code to be executed is still relatively short. However, the time savings with headless webscraping could be greater if the number of products/websites checked increases.
 
 The scraper could also be scheduled to run regularly and the results sent by email. This can be worked on in a future release.
 

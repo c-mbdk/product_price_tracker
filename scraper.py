@@ -7,14 +7,6 @@ from scraper_functions import superdrug_price_check, wilko_price_check, boots_pr
 
 import pandas as pd
 
-# from selenium.webdriver.chrome.options import Options
-
-# from webdriver_manager.chrome import ChromeDriverManager
-
-# TODO: make headless
-# options = webdriver.ChromeOptions()
-# options.add_argument('--headless')
-
 tracker_df = pd.DataFrame(columns=["Shop", "Product", "In Stock", "Price"])
 
 # Product: Dettol Soap

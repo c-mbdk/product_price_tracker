@@ -6,13 +6,26 @@ from selenium.common.exceptions import NoSuchElementException
 
 import pandas as pd
 
+from selenium.webdriver.chrome.options import Options
+
+# TODO: make headless
+# options = webdriver.ChromeOptions()
+# options.add_argument('--headless')
+
 tracker_columns = ["Shop", "Product", "In Stock", "Price"]
+
+def create_driver_instance():
+    options = Options()
+    options.add_argument('--headless=new')
+
+    driver_instance = webdriver.Chrome(options=options)
+    driver_instance.implicitly_wait(1)
+    return driver_instance
+
 
 # Shop: Superdrug
 def superdrug_price_check(url, product_name):
-
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(1)
+    browser = create_driver_instance()
     browser.get(url)
 
     try:
@@ -29,8 +42,7 @@ def superdrug_price_check(url, product_name):
 # Shop: Wilko
 def wilko_price_check(url, product_name):
     
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(1)
+    browser = create_driver_instance()
     browser.get(url)
 
     try:
@@ -47,8 +59,7 @@ def wilko_price_check(url, product_name):
 # Shop: Boots
 def boots_price_check(url, product_name):
 
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(1)
+    browser = create_driver_instance()
     browser.get(url)
 
     try:
