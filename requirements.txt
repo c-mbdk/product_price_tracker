@@ -1,6 +1,6 @@
 selenium==4.10.0
 urllib3==2.0.3
-trio=0.22.1
+trio==0.22.1
 trio-websocket==0.10.3
 certifi==2023.5.7
 attrs==23.1.0
