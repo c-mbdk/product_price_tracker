@@ -1,8 +1,6 @@
 name: run scraper.py
 
-on:
-  schedule:
-    - cron: '35 17 * * *'
+on: push
 
 jobs:
   build:
