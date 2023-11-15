@@ -32,7 +32,7 @@ def superdrug_price_check(url, product_name):
         browser.find_element(By.XPATH, "//span[contains(text(), 'Notify when in stock')]")
         superdrug_data = pd.DataFrame([("Superdrug", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
-        product_price = WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.XPATH, "//span[@class='price__current']")))
+        product_price = WebDriverWait(browser, 30).until(EC.visibility_of_element_located((By.XPATH, "//span[@class='price__current']")))
         superdrug_data = pd.DataFrame([("Superdrug", product_name, "Y", product_price.text)], columns=tracker_columns)
     finally:
         browser.quit()
