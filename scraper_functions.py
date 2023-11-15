@@ -8,9 +8,9 @@ import pandas as pd
 
 from selenium.webdriver.chrome.options import Options
 
-# TODO: make headless
-# options = webdriver.ChromeOptions()
-# options.add_argument('--headless')
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 tracker_columns = ["Shop", "Product", "In Stock", "Price"]
 
@@ -29,12 +29,11 @@ def superdrug_price_check(url, product_name):
     browser.get(url)
 
     try:
-        browser.find_element(By.XPATH, "//span[contains(., 'Notify when in stock')]")
+        WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(., 'Notify when in stock')]")))
         superdrug_data = pd.DataFrame([("Superdrug", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
-        # product_price = browser.find_element(By.XPATH, "//span[@class='price__current']")
-        # superdrug_data = pd.DataFrame([("Superdrug", product_name, "Y", product_price.text)], columns=tracker_columns)
-        superdrug_data = pd.DataFrame([("Superdrug", product_name, "N","N/A")], columns=tracker_columns)
+        product_price = WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='price__current']")))
+        superdrug_data = pd.DataFrame([("Superdrug", product_name, "Y", product_price.text)], columns=tracker_columns)
     finally:
         browser.quit()
         return superdrug_data
@@ -47,10 +46,10 @@ def wilko_price_check(url, product_name):
     browser.get(url)
 
     try:
-        browser.find_element(By.XPATH, "//h2[contains(text(), 'out of stock')]")
+        WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//h2[contains(text(), 'out of stock')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
-        product_price_wilko = browser.find_element(By.XPATH, "//div[contains(@class, 'pdp-price')]")
+        product_price_wilko = WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'pdp-price')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "Y", product_price_wilko.text)], columns=tracker_columns)
     finally:
         browser.quit()
