@@ -10,7 +10,7 @@ import pandas as pd
 tracker_df = pd.DataFrame(columns=["Shop", "Product", "In Stock", "Price"])
 
 # Product: Dettol Soap
-soap_superdrug_check = superdrug_price_check(dettol_superdrug_url, soap_name)
+# soap_superdrug_check = superdrug_price_check(dettol_superdrug_url, soap_name)
 soap_wilko_check = wilko_price_check(dettol_wilko_url, soap_name)
 soap_boots_check = boots_price_check(dettol_boots_url, soap_name)
 
@@ -23,8 +23,14 @@ mouthwash_superdrug_check = superdrug_price_check(mouthwash_superdrug_url, mouth
 mouthwash_boots_check = boots_price_check(mouthwash_boots_url, mouthwash_name)
 
 # Compiling results
-result_df_list = [soap_superdrug_check, soap_wilko_check, soap_boots_check, body_oil_superdrug_check, body_oil_boots_check,
-                  mouthwash_superdrug_check, mouthwash_boots_check]
+result_df_list = [
+    # soap_superdrug_check, 
+                  soap_wilko_check, 
+                  soap_boots_check, 
+                  body_oil_superdrug_check, 
+                  body_oil_boots_check,
+                  mouthwash_superdrug_check, 
+                  mouthwash_boots_check]
 
 for result in result_df_list:
     tracker_df = pd.concat([tracker_df, result], ignore_index=True)
