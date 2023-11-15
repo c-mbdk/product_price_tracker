@@ -50,7 +50,7 @@ def wilko_price_check(url, product_name):
         browser.find_element(By.XPATH, "//h2[contains(text(), 'out of stock')]")
         wilko_data = pd.DataFrame([("Wilko", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
-        product_price_wilko = browser.find_element(By.XPATH, "//div[@class='pdp-price']")
+        product_price_wilko = browser.find_element(By.XPATH, "//div[contains(@class, 'pdp-price')]")
         wilko_data = pd.DataFrame([("Wilko", product_name, "Y", product_price_wilko.text)], columns=tracker_columns)
     finally:
         browser.quit()
