@@ -49,7 +49,7 @@ def wilko_price_check(url, product_name):
         WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, "//h2[contains(text(), 'out of stock')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
-        product_price_wilko = WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'pdp-price')]")))
+        product_price_wilko = WebDriverWait(browser, 60).until(EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'pdp-price')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "Y", product_price_wilko.text)], columns=tracker_columns)
     finally:
         browser.quit()
