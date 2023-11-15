@@ -29,7 +29,7 @@ def superdrug_price_check(url, product_name):
     browser.get(url)
 
     try:
-        browser.find_element(By.CLASS_NAME, "out-of-stock")
+        browser.find_element(By.XPATH, "//span[contains(., 'Notify when in stock')]")
         superdrug_data = pd.DataFrame([("Superdrug", product_name, "N","N/A")], columns=tracker_columns)
     except NoSuchElementException:
         product_price = browser.find_element(By.XPATH, "//span[@class='price__current']")
