@@ -2,7 +2,7 @@ from selenium import webdriver
 
 from selenium.webdriver.common.by import By
 
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 import pandas as pd
 
@@ -46,9 +46,9 @@ def wilko_price_check(url, product_name):
     browser.get(url)
 
     try:
-        WebDriverWait(browser, 60).until(EC.visibility_of_element_located((By.XPATH, "//h2[contains(text(), 'out of stock')]")))
+        WebDriverWait(browser, 300).until(EC.visibility_of_element_located((By.XPATH, "//h2[contains(text(), 'out of stock')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "N","N/A")], columns=tracker_columns)
-    except NoSuchElementException:
+    except NoSuchElementException or TimeoutException:
         product_price_wilko = WebDriverWait(browser, 60).until(EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'pdp-price')]")))
         wilko_data = pd.DataFrame([("Wilko", product_name, "Y", product_price_wilko.text)], columns=tracker_columns)
     finally:
