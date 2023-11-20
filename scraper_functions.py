@@ -16,7 +16,7 @@ def create_driver_instance():
     options = Options()
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
     options.add_argument('--no-sandbox')
-    options.binary_location = "/usr/bin/google-chrome"
+    options.binary_location = "/usr/local/share/chromedriver-linux64"
 
 
     driver_instance = webdriver.Chrome(options=options)
