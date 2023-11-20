@@ -2,8 +2,8 @@ name: run scraper.py
 
 on: push
 
-env:
-  CHROMEWEBDRIVER: /usr/local/share/chromedriver-linux64
+# env:
+#   CHROMEWEBDRIVER: /usr/local/share/chromedriver-linux64
 
 jobs:
   build:
@@ -23,10 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: install chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: latest
+      # - name: install chrome
+      #   uses: browser-actions/setup-chrome@v1
+      #   with:
+      #     chrome-version: latest
       
       - name: execute scraper script
         run: python scraper.py
