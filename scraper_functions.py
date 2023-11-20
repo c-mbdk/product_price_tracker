@@ -8,6 +8,8 @@ from selenium.webdriver.chrome.options import Options
 
 from selenium.webdriver.chrome.service import Service
 
+from chromedriver_py import binary_path
+
 import pandas as pd
 
 
@@ -19,7 +21,7 @@ def create_driver_instance():
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
     options.add_argument('--no-sandbox')
     # options.binary_location = "/usr/local/share/chromedriver-linux64"
-    service = Service()
+    service = Service(executable_path=binary_path)
 
 
     driver_instance = webdriver.Chrome(service=service, options=options)
