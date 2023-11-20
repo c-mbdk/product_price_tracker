@@ -25,4 +25,3 @@ python-dateutil==2.8.2
 pytz==2023.3
 tzdata==2023.3
 numpy==1.25.2
-chromedriver-py==119.0.6045.105

@@ -8,10 +8,6 @@ from selenium.webdriver.chrome.options import Options
 
 from selenium.webdriver.chrome.service import Service
 
-from chromedriver_py import binary_path
-
-import os
-
 import pandas as pd
 
 
