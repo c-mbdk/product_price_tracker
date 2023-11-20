@@ -21,7 +21,7 @@ tracker_columns = ["Shop", "Product", "In Stock", "Price"]
 def create_driver_instance():
     options = Options()
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
-    # options.add_argument('--no-sandbox')
+    options.add_argument('--no-sandbox')
     options.add_argument('--remote-debugging-port=9222')
     # options.binary_location = "/opt/hostedtoolcache/chromium/latest/x64/chrome"
     # service = Service(executable_path=binary_path)
