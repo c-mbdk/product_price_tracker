@@ -1,4 +1,4 @@
-selenium==4.15.2
+selenium==4.10.0
 urllib3==2.0.3
 trio==0.22.1
 trio-websocket==0.10.3
