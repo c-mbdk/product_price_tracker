@@ -15,6 +15,7 @@ tracker_columns = ["Shop", "Product", "In Stock", "Price"]
 def create_driver_instance():
     options = Options()
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
+    options.add_argument('--no-sandbox')
 
     driver_instance = webdriver.Chrome(options=options)
     driver_instance.implicitly_wait(3)
