@@ -23,7 +23,7 @@ def create_driver_instance():
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
     options.add_argument('--no-sandbox')
     options.add_argument('--remote-debugging-port=9222')
-    options.binary_location = "/usr/bin/google-chrome"
+    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     service = Service(executable_path='/usr/local/bin/chromedriver')
 
     driver_instance = webdriver.Chrome(options=options, service=service)
