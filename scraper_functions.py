@@ -19,7 +19,7 @@ def create_driver_instance():
     options.binary_location = "/usr/bin/google-chrome"
 
 
-    driver_instance = webdriver.Chrome(options=options, executable_path="/usr/local/bin/chromedriver")
+    driver_instance = webdriver.Chrome(options=options)
     driver_instance.implicitly_wait(3)
     return driver_instance
 
