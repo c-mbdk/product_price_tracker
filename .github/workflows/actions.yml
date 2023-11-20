@@ -2,6 +2,9 @@ name: run scraper.py
 
 on: push
 
+env:
+  CHROMEWEBDRIVER: /usr/local/share/chromedriver-linux64
+
 jobs:
   build:
     runs-on: ubuntu-latest
