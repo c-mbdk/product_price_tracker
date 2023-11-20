@@ -22,7 +22,6 @@ jobs:
 
       - name: install chromedriver
         uses: browser-actions/setup-chrome@v1
-        run: chrome --version
       
       - name: execute scraper script
         run: python scraper.py
