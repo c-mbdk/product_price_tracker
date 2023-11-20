@@ -6,6 +6,8 @@ from selenium.common.exceptions import NoSuchElementException
 
 from selenium.webdriver.chrome.options import Options
 
+from selenium.webdriver.chrome.service import Service
+
 import pandas as pd
 
 
@@ -17,9 +19,10 @@ def create_driver_instance():
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
     options.add_argument('--no-sandbox')
     options.binary_location = "/usr/local/share/chromedriver-linux64"
+    service = Service()
 
 
-    driver_instance = webdriver.Chrome(options=options)
+    driver_instance = webdriver.Chrome(service=service, options=options)
     driver_instance.implicitly_wait(3)
     return driver_instance
 
