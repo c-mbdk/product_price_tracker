@@ -22,10 +22,10 @@ def create_driver_instance():
     options = Options()
     # options.add_argument('--headless=new') - can't accept cookies when this is enabled
     options.add_argument('--no-sandbox')
-    options.binary_location = os.environ["CHROME_BIN"]
-    service = Service(executable_path=os.environ["CHROMEWEBDRIVER"])
+    # options.binary_location = os.environ["CHROME_BIN"]
+    # service = Service(executable_path=os.environ["CHROMEWEBDRIVER"])
 
-    driver_instance = webdriver.Chrome(service=service, options=options)
+    driver_instance = webdriver.Chrome(options=options)
     driver_instance.implicitly_wait(3)
     return driver_instance
 
