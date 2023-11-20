@@ -22,6 +22,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: install chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: latest
       
       - name: execute scraper script
         run: python scraper.py
